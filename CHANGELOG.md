@@ -1,0 +1,4 @@
+### NEXT_VERSION_TYPE=MAJOR
+### NEXT_VERSION_DESCRIPTION_BEGIN
+* Add plugin to publish docker artifacts
+### NEXT_VERSION_DESCRIPTION_END

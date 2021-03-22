@@ -1,0 +1,7 @@
+dependencies {
+    implementation localGroovy(),
+            'com.bmuschko:gradle-docker-plugin:6.7.0'
+
+    testImplementation gradleTestKit(),
+            'junit:junit:4.13.2'
+}

@@ -1,0 +1,19 @@
+buildscript {
+    apply from: 'project.gradle', to: buildscript
+}
+
+apply plugin: "ru.yoomoney.gradle.plugins.gradle-project-plugin"
+apply plugin: "ru.yoomoney.gradle.plugins.kotlin-plugin"
+
+apply from: 'dependencies.gradle'
+
+artifactId = 'docker-artifact-publish-plugin'
+gradlePlugin {
+    plugins {
+        artifactPublishPlugin {
+            id = 'ru.yoomoney.gradle.plugins.docker-artifact-publish-plugin'
+            implementationClass = 'ru.yoomoney.gradle.plugins.docker.publish.DockerArtifactPublishPlugin'
+            displayName = 'Gradle plugin for publishing docker images'
+        }
+    }
+}
