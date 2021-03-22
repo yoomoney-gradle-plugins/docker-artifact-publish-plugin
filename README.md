@@ -1,0 +1,1 @@
+# docker-artifact-publish-plugin
