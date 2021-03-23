@@ -6,6 +6,7 @@ import com.bmuschko.gradle.docker.tasks.image.DockerTagImage
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.publish.plugins.PublishingPlugin
 import java.nio.file.Paths
 
 /**
@@ -25,20 +26,11 @@ class DockerArtifactPublishPlugin : Plugin<Project> {
 
     override fun apply(project: Project) {
         project.pluginManager.apply(DockerRemoteApiPlugin::class.java)
+        project.pluginManager.apply(PublishingPlugin::class.java)
 
         val extension = project.extensions.findByType(DockerArtifactPublishExtension::class.java)
         if (extension == null) {
             project.extensions.create(extensionName, DockerArtifactPublishExtension::class.java)
-        }
-
-        val publishTask = project.tasks.findByName("publish")
-        if (publishTask == null) {
-            project.tasks.create("publish") {
-                it.dependsOn("build")
-
-                it.group = "publication"
-                it.description = "Publish artifact general task"
-            }
         }
 
         project.afterEvaluate {
@@ -78,8 +70,8 @@ class DockerArtifactPublishPlugin : Plugin<Project> {
     private fun configurePublishTask(project: Project) {
         val settings = project.extensions.getByType(DockerArtifactPublishExtension::class.java)
         val pushImageTask = project.tasks.create("dockerPushImage", DockerPushImage::class.java) {
-            it.description = "Push image to a remote registry"
-            it.group = "publication"
+            it.description = "Push image to a remote docker registry"
+            it.group = PublishingPlugin.PUBLISH_TASK_GROUP
 
             it.dependsOn("dockerTagImageWithVersion", "dockerTagImageWithLatest")
 
@@ -96,7 +88,7 @@ class DockerArtifactPublishPlugin : Plugin<Project> {
             }
         }
 
-        project.tasks.findByName("publish")!!.dependsOn(pushImageTask)
+        project.tasks.findByName(PublishingPlugin.PUBLISH_LIFECYCLE_TASK_NAME)!!.dependsOn(pushImageTask)
     }
 
     private fun configureStoreVersion(project: Project) {
