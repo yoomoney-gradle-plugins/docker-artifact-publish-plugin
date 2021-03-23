@@ -16,16 +16,27 @@ Where `groupId` and `artifactId` are values from `dockerArtifactPublish`plugin e
 
 ## How to apply
 In order to apply the plugin just add to `build.gradle`:
+
+Using legacy plugin application:
 ```groovy
 buildscript {
     repositories {
-        jcenter()
+        maven { 
+            url "https://plugins.gradle.org/m2/" 
+        }
     }
     dependencies {
         classpath 'ru.yoomoney.gradle.plugins:docker-artifact-publish-plugin:1.+'
     }
 }
 apply plugin: 'ru.yoomoney.gradle.plugins.docker-artifact-publish-plugin'
+```
+
+Using the plugin DSL:
+```groovy
+plugins {
+  id "ru.yoomoney.gradle.plugins.docker-artifact-publish-plugin" version "1.0.0"
+}
 ```
 
 ## Configuration example
