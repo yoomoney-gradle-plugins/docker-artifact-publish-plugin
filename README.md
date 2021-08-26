@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.com/yoomoney-gradle-plugins/docker-artifact-publish-plugin.svg?branch=master)](https://travis-ci.com/yoomoney-gradle-plugins/docker-artifact-publish-plugin)
-[![codecov](https://codecov.io/gh/yoomoney-gradle-plugins/docker-artifact-publish-plugin/branch/master/graph/badge.svg)](https://codecov.io/gh/yoomoney-gradle-plugins/docker-artifact-publish-plugin)
+[![Build Status](https://travis-ci.com/yoomoney/docker-artifact-publish-plugin.svg?branch=master)](https://travis-ci.com/yoomoney/docker-artifact-publish-plugin)
+[![codecov](https://codecov.io/gh/yoomoney/docker-artifact-publish-plugin/branch/master/graph/badge.svg)](https://codecov.io/gh/yoomoney/docker-artifact-publish-plugin)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # docker-artifact-publish-plugin
