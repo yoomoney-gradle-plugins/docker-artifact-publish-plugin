@@ -1,5 +1,6 @@
-### NEXT_VERSION_TYPE=MAJOR|MINOR|PATCH
+### NEXT_VERSION_TYPE=MAJOR
 ### NEXT_VERSION_DESCRIPTION_BEGIN
+* **breaking changes** Поднята версия gradle: 6.4.1 -> 7.4.1.
 ### NEXT_VERSION_DESCRIPTION_END
 ## [1.1.0](https://github.com/yoomoney/docker-artifact-publish-plugin/pull/3) (26-08-2021)
 
